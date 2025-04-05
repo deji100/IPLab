@@ -20,7 +20,7 @@ docker-compose.override.yml
 venv/
 env/
 .venv/
-.env/
+.env
 
 # Ignore other IDE-specific files
 .idea/
