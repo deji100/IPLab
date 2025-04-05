@@ -1,0 +1,27 @@
+# Ignore the Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore database files
+*.sqlite3
+
+# Ignore Django migration files
+migrations/
+
+# Ignore the media folder (for uploaded files)
+media/
+
+# Ignore Docker-related files
+docker-compose.override.yml
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+.env/
+
+# Ignore other IDE-specific files
+.idea/
+.vscode/
