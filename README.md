@@ -116,7 +116,6 @@ If you prefer to run the project without Docker, follow these steps:
 ## Additional Notes
 
 - The app fetches and downloads videos from a specific YouTube channel using the YouTube API and `yt-dlp` library.
-- The `.env` file contains the correct API keys, channel ID, and database configurations.
 - Video downloads are triggered by hitting the endpoint `http://localhost:8000/api/fetch-videos`.
 
 ---
