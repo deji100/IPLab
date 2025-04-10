@@ -4,7 +4,7 @@ from rest_framework import status
 # from .utils import fetch_and_download_videos
 from .tasks import fetch_and_download_videos
 # from .serializers import VideoSerializer
-from .models import Video
+# from .models import Video
 
 @api_view(["GET"])
 def fetch_videos_api(request):

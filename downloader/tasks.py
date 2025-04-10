@@ -1,14 +1,17 @@
 import yt_dlp
 import requests
 import re
+import environ
 from celery import shared_task
 from downloader.models import Video, Channel
 from django.utils.dateparse import parse_datetime
 
+env = environ.Env()
+environ.Env.read_env()  # Reads the .env file
 
-API_KEY = "AIzaSyAbj3OSHJdNoni-SAinDYt6c4AD2hv1tYg"
-CHANNEL_ID = "UCOsQ3iGRosvnpP1hAdtplvQ"
-
+# Access API Key and Channel ID from the environment
+API_KEY = env("YOUTUBE_API_KEY")
+CHANNEL_ID = env("YOUTUBE_CHANNEL_ID")
 
 def parse_duration(duration):
     match = re.match(r'PT(?:(\d+)M)?(?:(\d+)S)?', duration)
@@ -46,7 +49,7 @@ def fetch_and_download_videos():
         duration = items[0]["contentDetails"].get("duration", "")
         total_seconds = parse_duration(duration)
 
-        if total_seconds <= 61:
+        if total_seconds <= 60:
             print(f"Skipping short video: {video_id} ({total_seconds}s)")
             continue
 
